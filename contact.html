@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Ndala Motors</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="container main-nav">
+    <h1>Ndala Motors</h1>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="inventory.html">Inventory</a>
+          <ul class="dropdown-menu">
+            <li><a href="inventory.html#suvs">SUVs</a></li>
+            <li><a href="inventory.html#sedans">Sedans</a></li>
+            <li><a href="inventory.html#hatchbacks">Hatchbacks</a></li>
+            <li><a href="inventory.html#trucks">Trucks</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="parts.html">Parts</a>
+          <ul class="dropdown-menu">
+            <li><a href="parts.html#engines">Engines</a></li>
+            <li><a href="parts.html#batteries">Batteries</a></li>
+            <li><a href="parts.html#tires">Tires</a></li>
+            <li><a href="parts.html#accessories">Accessories</a></li>
+          </ul>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2 class="section-title">Contact Us</h2>
+  <p>If you have questions or want to schedule a visit, please fill out the form below or use the contact info.</p>
+
+  <form id="contactForm" action="#" method="post" onsubmit="return validateForm()">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="+267 7XX XXX XXX" required />
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <h3>Our Contact Details</h3>
+  <p>Phone: +267 312 3456</p>
+  <p>Email: info@ndalamotors.co.bw</p>
+  <p>Address: 123 Main Street, Gaborone, Botswana</p>
+</main>
+
+<footer>
+  <p>© 2025 Ndala Motors. All rights reserved.</p>
+</footer>
+
+<script>
+  function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !phone || !message) {
+      alert('Please fill in all fields.');
+      return false;
+    }
+
+    // Basic email regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return false;
+    }
+
+    // Basic phone validation for Botswana format +267
+    const phoneRegex = /^\+267\s?\d{3}\s?\d{3}\s?\d{3}$/;
+    if (!phoneRegex.test(phone)) {
+      alert('Please enter a valid Botswana phone number (e.g., +267 712 345 678).');
+      return false;
+    }
+
+    alert('Thank you for contacting Ndala Motors! We will get back to you soon.');
+    return true;
+  }
+</script>
+</body>
+</html>
